@@ -1,20 +1,12 @@
-# Phantom C U R L
+# Phantom CURL
 
-[![Build Status](https://travis-ci.org/denis-kisel/phantom-c-u-r-l.svg?branch=master)](https://travis-ci.org/denis-kisel/phantom-c-u-r-l)
-[![styleci](https://styleci.io/repos/CHANGEME/shield)](https://styleci.io/repos/CHANGEME)
-[![Coverage Status](https://coveralls.io/repos/github/denis-kisel/phantom-c-u-r-l/badge.svg?branch=master)](https://coveralls.io/github/denis-kisel/phantom-c-u-r-l?branch=master)
-
-[![Packagist](https://img.shields.io/packagist/v/denis-kisel/phantom-c-u-r-l.svg)](https://packagist.org/packages/denis-kisel/phantom-c-u-r-l)
-[![Packagist](https://poser.pugx.org/denis-kisel/phantom-c-u-r-l/d/total.svg)](https://packagist.org/packages/denis-kisel/phantom-c-u-r-l)
-[![Packagist](https://img.shields.io/packagist/l/denis-kisel/phantom-c-u-r-l.svg)](https://packagist.org/packages/denis-kisel/phantom-c-u-r-l)
-
-Package description: CHANGE ME
+Basics on [phantomjs](https://phantomjs.org/) for get content difficult sites.
 
 ## Installation
 
 Install via composer
 ```bash
-composer require denis-kisel/phantom-c-u-r-l
+composer require denis-kisel/phantom-curl
 ```
 
 ### Publish Configuration File
@@ -22,20 +14,21 @@ composer require denis-kisel/phantom-c-u-r-l
 ```bash
 php artisan vendor:publish --provider="DenisKisel\PhantomCURL\ServiceProvider" --tag="config"
 ```
+Change config `phantom_curl` if you need to change storage dir or replace phantomjs bin.
 
 ## Usage
 
-CHANGE ME
+```php
+//Return content page
+\DenisKisel\PhantomCURL\PhantomCURL::to('https://amazon.com')->get() 
 
-## Security
 
-If you discover any security related issues, please email 
-instead of using the issue tracker.
-
-## Credits
-
-- [](https://github.com/denis-kisel/phantom-c-u-r-l)
-- [All contributors](https://github.com/denis-kisel/phantom-c-u-r-l/graphs/contributors)
-
-This package is bootstrapped with the help of
-[melihovv/laravel-package-generator](https://github.com/melihovv/laravel-package-generator).
+//Use Proxy
+//$method available - [http|socks5|none] (default is http)
+\DenisKisel\PhantomCURL\PhantomCURL::to('https://google.com')
+    ->withProxy($ip, $port, $method, $login, $pass)
+    ->get();
+    
+//Change window size (default is 1024x768)
+\DenisKisel\PhantomCURL\PhantomCURL::to('https://google.com')->windowSize(1920, 1080)->get();
+```
