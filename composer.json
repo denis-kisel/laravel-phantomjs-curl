@@ -15,6 +15,7 @@
             "homepage": "http://digital-elephant.com.ua"
         }
     ],
+    "homepage": "https://github.com/denis-kisel/laravel-phantomjs-curl",
     "require": {
         "php": ">=7.2",
         "illuminate/support": ">=5.0"
