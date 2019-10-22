@@ -2,6 +2,11 @@
 
 Basics on [phantomjs](https://phantomjs.org/) for get content difficult sites.
 
+# More Powerful Lib
+This first version for simple usage, if you need full power, see this sourse:
+[CasperCURL](https://github.com/denis-kisel/php-casper-curl)
+
+
 ## Installation
 
 Install via composer
